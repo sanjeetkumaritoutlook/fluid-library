@@ -1,0 +1,26 @@
+{
+  "name": "fluid-library",
+  "version": "1.0.3",
+  "description": "A description of FLUID library",
+  "author": "Sanjeet Kumar<sanjeetkumarit@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanjeetkumaritoutlook/fluid-library.git"
+  },
+  "keywords": [
+    "angular",
+    "stenciljs",
+    "fluid-library"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}
