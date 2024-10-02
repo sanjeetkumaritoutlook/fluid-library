@@ -19,9 +19,14 @@ export const fluidEnvironments = {
     esm: 'http://localhost:3333/fluid/build/fluid.esm.js',
     legacy: 'http://localhost:3333/fluid/build/fluid.js',
   },
+  // external: {
+  //   label: 'External',
+  //   esm: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js',
+  //   legacy: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.js',
+  // },
   external: {
     label: 'External',
-    esm: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js',
-    legacy: 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.js',
+    esm: 'https://fluid.libertymutual.com/fluid/build/fluid.esm.js',
+    legacy: 'https://fluid.libertymutual.com/fluid/build/fluid.js',
   },
 };

@@ -16,13 +16,90 @@ import { FluidServiceService } from './my-library/fluid-service.service';
   allow-custom-input="true"
   placeholder="Enter option(s) that are NOT in the dropdown menu..."
   [options]="options"></fluid-combo-box>
+  <fluid-form [config]="config"></fluid-form>
   `,
   styles: [
   ]
 })
 export class MyLibraryComponent implements OnInit {
   constructor(private externalScriptLoader: FluidServiceService) { }
+  config = {
+    elements: [
+      {
+        label: 'Co-Insurance Agreement:',
+        controlName: 'co_insurance_agreement',
+        dataPath: 'co_insurance_agreement',
+        elementType: 'radio-group',
+        inlineQuestion: true,
+        questionWidth: 9,
+        labelTextOverflow: 'wrap',
+        options: [
+          {
+            value: 'true',
+            label: 'Yes',
+          },
+          {
+            value: 'false',
+            label: 'No',
+          },
+        ],
+        initialValue: 'false',
+      },
+      {
+        label: 'Co-Insurer:',
+        dataPath: 'co_insurer',
+        controlName: 'co_insurer',
+        elementType: 'input',
+        elementWidth: 12,
+        type: 'text',
 
+        validation: [
+          {
+            type: 'minLength',
+            value: 4,
+            message: 'You must enter more than 4 characters in this field',
+          },
+        ],
+      },
+      {
+        label: 'Co-Insurers (Add repeating data)',
+        dataPath: 'co_insurer_section',
+        controlName: 'co_insurer_section',
+        elementType: 'array',
+        entryLabel: (index:any, value:any) => {
+          return ` `;
+        },
+        errorConfig: { disabled: true },
+
+        // displayStyle: 'table',
+
+        // conditionalOn: (formData: any) => formData?.co_insurance_agreement === 'true',
+        formConfig: {
+          layout: 'horizontal',
+
+          elements: [
+            {
+              label: 'Co-Insurer:',
+              dataPath: 'co_insurer',
+              controlName: 'co_insurer',
+              elementType: 'input',
+              elementWidth: 12,
+              type: 'text',
+
+              validation: [
+                {
+                  type: 'minLength',
+                  value: 4,
+                  message:
+                    'You must enter more than 4 characters in this field',
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ],
+  };
   validation = [
     {
       type: 'custom',
@@ -55,7 +132,7 @@ export class MyLibraryComponent implements OnInit {
    },
   ];
   ngOnInit() {
-    const scriptUrl = 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js'; 
+    const scriptUrl = 'https://fluid.libertymutual.com/fluid/build/fluid.esm.js'; 
     this.externalScriptLoader.loadScript(scriptUrl)
       .then(() => {
         console.log('External script loaded');

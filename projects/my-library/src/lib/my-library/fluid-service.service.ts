@@ -16,11 +16,11 @@ export class FluidServiceService {
 
      
         scriptElement.type = 'module';
-        // scriptElement.src = 'https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js';
+        // scriptElement.src = 'https://fluid.libertymutual.com/fluid/build/fluid.esm.js';
         scriptElement.src = url;
       //https://d3vissazv1qzch.cloudfront.net/fluid/build/fluid.js
       //https://d3vissazv1qzch.cloudfront.net/fluid/build/fluid.css
-
+      //https://dsfe50dspcxki.cloudfront.net/fluid/build/fluid.esm.js
       scriptElement.onload = () => {
         console.log(`Script loaded successfully: ${url}`);
         resolve();
